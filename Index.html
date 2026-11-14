@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Manuel | Joey Drew Style</title>
+    <!-- Enlace a Boxicons para iconos de redes/contacto -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Fuentes estilo años 30 y máquina de escribir -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-bg: #e3d0ae;       /* Fondo pergamino envejecido */
+            --card-bg: rgba(244, 232, 209, 0.96);        /* Fondo de tarjetas translúcido */
+            --ink-black: #111111;      /* Negro tinta puro */
+            --ink-brown: #2e2016;      /* Marrón oscuro tipo madera/sepia */
+            --sepia-accent: #8c6239;   /* Acento dorado viejo / ocre */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--ink-black);
+            color: var(--ink-black);
+            font-family: 'Special Elite', monospace, serif;
+            line-height: 1.6;
+            padding: 15px;
+            /* Fondo ambiental oscuro estilo taller */
+            background-image: 
+                linear-gradient(rgba(20, 14, 10, 0.85), rgba(17, 17, 17, 0.95)),
+                url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Barra de navegación superior */
+        header {
+            position: relative;
+            width: 100%;
+            background-color: var(--ink-black);
+            color: #f4e8d1;
+            padding: 15px 20px;
+            border: 4px solid var(--ink-black);
+            outline: 2px solid #f4e8d1;
+            outline-offset: -6px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.85);
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f4e8d1;
+            filter: sepia(90%) contrast(130%) grayscale(40%);
+            background-color: #f4e8d1;
+        }
+
+        header h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.3rem;
+            color: #f4e8d1;
+            letter-spacing: 1px;
+        }
+
+        header h1 span {
+            color: var(--paper-bg);
+            text-decoration: underline wavy var(--sepia-accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: #f4e8d1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f4e8d1;
+            color: var(--ink-black);
+            border: 1px solid #f4e8d1;
+            box-shadow: 3px 3px 0px var(--sepia-accent);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas con estilo de hoja de boceto */
+        section {
+            background-color: var(--card-bg);
+            padding: 22px;
+            margin-bottom: 25px;
+            border: 4px solid var(--ink-black);
+            border-radius: 3px;
+            box-shadow: 6px 6px 0px var(--ink-black);
+            position: relative;
+        }
+
+        section::before {
+            content: "●";
+            position: absolute;
+            top: 6px;
+            left: 10px;
+            font-size: 10px;
+            color: var(--ink-black);
+        }
+
+        section::after {
+            content: "●";
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            font-size: 10px;
+            color: var(--ink-black);
+        }
+
+        section h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--ink-black);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--ink-black);
+            padding-bottom: 6px;
+            text-shadow: 2px 2px 0px rgba(140, 98, 57, 0.35);
+        }
+
+        .flex-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .flex-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .game-poster-box {
+            text-align: center;
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        .game-poster {
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+            border: 4px solid var(--ink-black);
+            box-shadow: 5px 5px 0px var(--ink-black);
+            transform: rotate(-1.5deg);
+            background-color: #f4e8d1;
+            filter: sepia(85%) contrast(120%);
+        }
+
+        .poster-caption {
+            font-size: 0.75rem;
+            color: var(--ink-brown);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--ink-black);
+            box-shadow: 4px 4px 0px var(--ink-black);
+            filter: sepia(85%) contrast(125%);
+        }
+
+        /* Estilo para las cajitas de pasatiempos con imagen integrada */
+        .pasatiempo-card {
+            background-color: var(--ink-black);
+            color: var(--paper-bg);
+            padding: 12px;
+            border: 2px solid var(--ink-black);
+            border-radius: 2px;
+            font-size: 0.85rem;
+            box-shadow: 3px 3px 0px var(--sepia-accent);
+            margin-bottom: 15px;
+        }
+
+        .pasatiempo-card p {
+            margin-bottom: 10px;
+        }
+
+        .pasatiempo-img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border: 2px solid var(--paper-bg);
+            border-radius: 2px;
+            filter: sepia(85%) contrast(120%);
+        }
+
+        .project-item {
+            margin-bottom: 18px;
+            padding: 12px;
+            border: 2px dashed var(--ink-brown);
+            background-color: rgba(227, 208, 174, 0.4);
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            border: 3px solid var(--ink-black);
+            filter: sepia(85%) contrast(120%);
+        }
+
+        .project-item h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.05rem;
+            color: var(--ink-black);
+            margin-bottom: 5px;
+        }
+
+        .project-item p {
+            color: var(--ink-brown);
+            font-size: 0.9rem;
+        }
+
+        /* --- ESTILOS DEL CARRUSEL --- */
+        .carrusel-slider-box {
+            width: 100%;
+            max-width: 320px;
+            margin: 15px auto;
+            position: relative;
+        }
+
+        .carrusel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 15px;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--ink-brown) transparent;
+        }
+
+        .carrusel-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carrusel-track::-webkit-scrollbar-thumb {
+            background-color: var(--ink-brown);
+            border-radius: 3px;
+        }
+
+        .carrusel-slide-item {
+            min-width: 100%;
+            scroll-snap-align: center;
+            background-color: var(--card-bg);
+            border: 3px solid var(--ink-black);
+            padding: 8px;
+            box-shadow: 4px 4px 0px var(--ink-black);
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .carrusel-slide-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border: 2px solid var(--ink-black);
+            border-radius: 2px;
+            filter: sepia(85%) contrast(120%);
+        }
+
+        .carrusel-caption {
+            font-size: 0.8rem;
+            color: var(--ink-brown);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .social-btn {
+            background-color: var(--ink-black);
+            color: var(--card-bg);
+            padding: 8px 14px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 2px solid var(--ink-black);
+            box-shadow: 3px 3px 0px var(--sepia-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: var(--ink-black);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 9px 10px;
+            border-radius: 2px;
+            border: 3px solid var(--ink-black);
+            background-color: #fbf5e9;
+            color: var(--ink-black);
+            font-family: 'Special Elite', monospace;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .btn-submit {
+            align-self: flex-start;
+            background-color: var(--ink-black);
+            color: var(--card-bg);
+            padding: 9px 18px;
+            border-radius: 3px;
+            border: 3px solid var(--ink-black);
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--sepia-accent);
+        }
+
+        .email-highlight {
+            background-color: var(--ink-black);
+            color: var(--card-bg);
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: var(--paper-bg);
+            background-color: rgba(17, 17, 17, 0.9);
+            border: 3px solid var(--paper-bg);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado y Barra de Navegación -->
+    <header>
+        <div class="logo-container">
+            <img src="img/bendy-logo.jpg" alt="Logo de Bendy" class="logo-img">
+            <h1>Hola, soy <span>Manuel</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#pasatiempos">Pasatiempos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#testimonios">opinión</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Inicio / Presentación -->
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <div class="flex-content">
+                <div class="flex-text">
+                    <p>Estudiante de la universidad UPTAEB 😁 ¡Bienvenido a mi espacio web oficial!</p>
+                    <p style="margin-top: 8px;"><em>"Los sueños se hacen realidad..."</em></p>
+                </div>
+                <div class="game-poster-box">
+                    <img src="img/Joey-Drew-Studios.jpg" alt="Póster Joey Drew Studios" class="game-poster">
+                    <p class="poster-caption">Joey Drew Studios — 1929</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre mí -->
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+            <div class="profile-img-container">
+                <img src="img/perfil.jpg" alt="Foto personal de Manuel" class="foto-perfil">
+            </div>
+            <p>Pues yo soy un muchacho muy tranquilo con 18 años de edad. Escogí esta carrera porque me gusta usar mucho la tecnología y esta carrera es para eso. Espero esforzarme para ser un buen programador :)</p>
+        </section>
+
+        <!-- Pasatiempos -->
+        <section id="pasatiempos">
+            <h2>Pasatiempos</h2>
+            <p style="margin-bottom: 12px;">Cuando no estoy estudiando, me encanta hacer varias cosas:</p>
+            
+            <!-- Caja 1: Videojuegos -->
+            <div class="pasatiempo-card">
+                <p>Jugar videojuegos (sobre todo ahorita estoy jugando super smash bros ultimate con amigos😁✌🏻)</p>
+                <img src="img/partida-de-smash.jpg" alt="Partida de Super Smash Bros Ultimate con amigos" class="pasatiempo-img">
+            </div>
+
+            <!-- Caja 2: Música -->
+            <div class="pasatiempo-card">
+                <p>Escuchar música(y mucho sobre todo si son canciones de videojuegos ✨🤩✨)</p>
+                <img src="img/cancion-de-bendy.jpg" alt="Escuchando música de videojuegos" class="pasatiempo-img">
+            </div>
+
+            <!-- Caja 3: Amigos -->
+            <div class="pasatiempo-card">
+                <p>y pasar el tiempo con amigos (sea amigos nuevos y viejos)</p>
+                <img src="img/amigos-uni.jpg" alt="Pasando tiempo con amigos" class="pasatiempo-img">
+            </div>
+        </section>
+
+        <!-- Servicios / Materias actuales -->
+        <section id="servicios">
+            <h2>Servicios y Materias</h2>
+            <p>¿Qué materias te están enseñando en esta carrera? ¿Qué estás aprendiendo hasta ahorita?:</p>
+            <ul class="skills-list">
+                <li>Algorítmica</li>
+                <li>Electiva</li>
+                <li>Formación Crítica</li>
+                <li>Proyecto</li>
+                <li>Actividad Acreditable (es una materia aparte pero nada que ver con informática 😅)</li>
+            </ul>
+        </section>
+
+        <!-- Portafolio / Proyectos -->
+        <section id="portafolio">
+            <h2>Portafolio - Proyectos Académicos y Personales</h2>
+            
+            <!-- 1. Portafolio Web Personal (GIF bendy-escribiendo.gif) -->
+            <div class="project-item">
+                <img src="img/bendy-escribiendo.gif" alt="Portafolio Web Personal" class="project-img">
+                <h3>Portafolio Web Personal</h3>
+                <p>Por ahora esto es para una tarea para la uni, ¡pero voy a ver si me hago uno personal 😁👍🏻!</p>
+            </div>
+
+            <!-- Carrusel de Mis Imágenes (Zona de Cascadas - 8 espacios) -->
+            <div class="project-item" style="margin-top: 15px;">
+                <h3>Pues aquí algunas imágenes random sobre mí y mis cosas que me gustan 😅</h3>
+                <p>Aquí con las imágenes 😅:</p>
+                
+                <div class="carrusel-slider-box">
+                    <div class="carrusel-track">
+                        <!-- Imagen 1 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/el-Henry-cavill.jpg" alt="Foto estilo Henry Cavill">
+                            <p class="carrusel-caption">Estilo Legendario</p>
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/los-cazadores-de-demonios.jpg" alt="Los Cazadores de Demonios">
+                            <p class="carrusel-caption">Los Cazadores de Demonios</p>
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/la-mujer-de-mi-vida.gif" alt="La mujer de mi vida">
+                            <p class="carrusel-caption">La mujer de mi vida</p>
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/el-spiderman.jpg" alt="Spider-Man">
+                            <p class="carrusel-caption">El hombre araña</p>
+                        </div>
+                        <!-- Imagen 5 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/los-de-freddy-fazbear.jpg" alt="Freddy Fazbear">
+                            <p class="carrusel-caption">Freddy Fazbear</p>
+                        </div>
+                        <!-- Imagen 6 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/bendy-casi-valiendo-madres.gif" alt="Bendy en apuros">
+                            <p class="carrusel-caption">Bendy en apuros</p>
+                        </div>
+                        <!-- Imagen 7 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/el-esposo-de-shinobu.jpg" alt="El esposo de Shinobu">
+                            <p class="carrusel-caption">El esposo de Shinobu</p>
+                        </div>
+                        <!-- Imagen 8 -->
+                        <div class="carrusel-slide-item">
+                            <img src="img/la-esposa-de-manuel.jpg" alt="La esposa de Manuel">
+                            <p class="carrusel-caption">La esposa de Manuel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Prácticas de Algoritmos en C++ (GIF Shinobu-mi-vieja.gif) -->
+            <div class="project-item" style="margin-top: 15px;">
+                <img src="img/Shinobu-mi-vieja.gif" alt="Prácticas de Algoritmos en C++" class="project-img">
+                <h3>Prácticas de Algoritmos en C++</h3>
+                <p>Resolución de estructuras de control, funciones lógicas y manejo de datos orientados a la ingeniería.</p>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section id="testimonios">
+            <h2>opimion:</h2>
+            <div class="flex-content">
+                <div class="flex-text">
+                    <p>pues para darles mi opinión sobre esto es que a estado interesante sobre hacer un portafolio o una pagina web,espero seguir actualizando esto con el tiempo asi ya saben,pueden saber más de mi en mis otras redes o en mi correo personal.</p>
+                </div>
+                <div class="game-poster-box">
+                    <img src="img/Bendy-el-glotón.jpg" alt="Bendy el glotón" class="game-poster" style="transform: rotate(1.5deg);">
+                    <p class="poster-caption">Bendy el glotón</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Ana Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+
+            <h3 style="font-size: 1.05rem; margin-top: 15px;">Otros Datos</h3>
+            <p style="margin-top: 8px;">📧 Correo: <span class="email-highlight">manualeoropeza17@email.com</span></p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/19eG13N54F/" target="_blank" class="social-btn"><i class='bx bxl-facebook'></i> Facebook</a>
+                <a href="https://www.instagram.com/m4nu3l2008?stkn=MWh5cmgzMGZhZmR1NA==" target="_blank" class="social-btn"><i class='bx bxl-instagram'></i> Instagram</a>
+                <a href="https://tiktok.com/@manueloropeza38" target="_blank" class="social-btn"><i class='bx bxl-tiktok'></i> TikTok</a>
+                <a href="https://www.youtube.com/@manuel3607" target="_blank" class="social-btn"><i class='bx bxl-youtube'></i> YouTube</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Manuel. Creado con código HTML y CSS puro al estilo Joey Drew Studios.</p>
+    </footer>
+
+</body>
+</html>
